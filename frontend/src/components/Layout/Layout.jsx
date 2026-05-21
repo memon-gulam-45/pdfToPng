@@ -6,7 +6,6 @@ import ImageWebp from "../../pages/ImageWbp";
 import ImageJpg from "../../pages/ImageJpg";
 import RemoveBg from "../../pages/RemoveBg";
 import ImageUpscale from "../../pages/ImageUpscale";
-import { Outlet, useLocation } from "react-router-dom";
 import ImageCompress from "../../pages/ImageCompress";
 import RotateFlip from "../../pages/RotateFlip";
 import ImageBase64 from "../../pages/ImageBase64";
@@ -64,7 +63,7 @@ const Layout = () => {
     }
   };
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-gray-50">
       <Sidebar
         activeTab={activePath}
         isMobileMenuOpen={isMobileMenuOpen}
@@ -73,22 +72,20 @@ const Layout = () => {
       />
       <main className="flex-1 overflow-y-auto">
         {isMobile && (
-          <header className="bg-white shadow-sm sticky top-0 z-30">
+          <header className="sticky top-0 z-30 bg-white shadow-sm">
             <div className="flex items-center justify-between p-4">
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-2 transition-colors rounded-lg hover:bg-gray-100"
               >
                 <Menu className="w-6 h-6" />
               </button>
-              <h1 className="text-lg font-semibold text-blue-400">
-                pdfToPng
-              </h1>
+              <h1 className="text-lg font-semibold text-blue-400">pdfToPng</h1>
               <div className="w-10"></div>
             </div>
           </header>
         )}
-        <div className="min-h-full flex justify-center items-center py-8">
+        <div className="flex items-center justify-center min-h-full py-8">
           <Outlet />
         </div>
       </main>
